@@ -1,0 +1,13 @@
+field_name,field_type,description,example_value,required
+auction_id,string,Unique auction identifier,"12345678",true
+title,string,Auction title/name,"Ingatlan eladás - Budapest",true
+price_huf,number,Price in Hungarian Forint,5000000,true
+price_eur,number,Price in EUR (calculated),14285.71,false
+location,string,City or location name,"Budapest",true
+category,string,Auction category,"Ingatlan",true
+start_date,date,Auction start date,"2024-03-15",true
+end_date,date,Auction end date,"2024-03-22",true
+image_url,string,Thumbnail image URL,"/images/auction_123.jpg",false
+status,string,Current auction status,"active|closed|cancelled",true
+description,string,Auction description text,"...",false
+seller_name,string,Seller name if available,"NAV",false
