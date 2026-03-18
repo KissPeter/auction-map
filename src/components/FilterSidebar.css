@@ -1,0 +1,47 @@
+.filter-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  box-shadow: -2px 0 4px rgba(0,0,0,0.04);
+  transition: width 0.3s;
+  z-index: 100;
+  overflow-x: hidden;
+}
+.filter-sidebar.collapsed {
+  width: 40px;
+}
+.sidebar-toggle {
+  position: absolute;
+  left: -32px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.filter-panel {
+  padding: 32px 12px 16px 12px;
+}
+.filter-section {
+  margin-bottom: 18px;
+}
+.filter-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+}
+.filter-section li {
+  margin: 4px 0;
+}
+.count {
+  color: #888;
+  font-size: 0.85em;
+  margin-left: 4px;
+}
