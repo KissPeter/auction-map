@@ -1,0 +1,103 @@
+openapi: 3.0.0
+info:
+  title: Auction Map API
+  version: 1.0
+paths:
+  /nav-auctions:
+    get:
+      summary: Get NAV Auctions
+      description: Returns NAV auction data with pagination and filtering.
+      tags:
+        - NAV Auctions
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: page_size
+          in: query
+          description: Number of records per page
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: start_date
+          in: query
+          description: Filter auctions starting on or after this date
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          description: Filter auctions ending on or before this date
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: location
+          in: query
+          description: Filter auctions by location or region
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NavAuction'
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  page_size:
+                    type: integer
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    NavAuction:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        location:
+          type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        category:
+          type: string
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
